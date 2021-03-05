@@ -11,8 +11,6 @@ import numpy as np
 base ='https://www.abebooks.com/servlet/SearchResults?sts=t&cm_sp=SearchF-_-home-_-Results&ds=100&an=&tn=&kn=&isbn='
 # Selectable 
 ISBN =  input("Give us ISBN: ")
-# Fixed ISBN for processing
-# Some ISBNs for testing
 #ISBN = '9780276440502'
 #  9780276440502 = Churchill  
 # 9780394900810 = If I Ran the Zoo
@@ -23,7 +21,6 @@ page = requests.get(URL)
 soup = BeautifulSoup(page.content, 'html.parser')
 
 ## Get all the results 
-#books = soup.find(id='main')
 BookIs = soup.find('title')
 
 ## Get each li id into a list 
@@ -64,6 +61,8 @@ num_sellers = len(bd_index)
 avg_price = book_data["cost"].mean()
 avg_price = round(avg_price, 2)
 
+
+
 #########
 # # Debug
 #print(book_data.shape)
@@ -82,8 +81,10 @@ print('Found')
 print(BookIs.text)
 print('########### The Book Details #########')
 
-print("There are: ", num_sellers, "sellers")
-print("The average prices is:", avg_price)
+print("== There are: ", num_sellers, "sellers")
+print("== The Average prices is:", avg_price)
+print("== The Highest Price is:", book_data["cost"].max())
+print("== The Lowest Price is:", book_data["cost"].min())
 #print(book_data)
 # da_count = book_data.count()
 # print(da_count)
