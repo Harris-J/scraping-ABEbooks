@@ -75,6 +75,8 @@ avg_price = round(avg_price, 2)
 ################################################
 # Outputs  
 ##################################################################
+
+print('########### Look up #########')
 print('Searching for: ', ISBN, 'on')
 print(URL)
 print('Found')
